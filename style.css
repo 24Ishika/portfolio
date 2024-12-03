@@ -1,0 +1,714 @@
+@font-face {
+  font-family: 'Rage Italic';
+  src: url('fonts/RageItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    line-height: 1.6;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 8px 0;
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Logo */
+  nav .logo img {
+    height: 50px;
+  }
+  
+  /* Navigation Links (Desktop) */
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+  }
+  
+  nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+  }
+  
+/* Hero Section */
+#hero {
+    position: sticky;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden; /* Prevents overflow of content */
+    top: 0;
+}
+
+#hero video {
+    position: absolute;
+    top: 50%; /* Center the video vertically */
+    left: 50%; /* Center the video horizontally */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50.1%, -50.1%); /* Adjusts the video to be centered */
+    z-index: -1;
+}
+
+.black-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Black background with 50% opacity */
+    z-index: 0; /* Ensure this is behind the content but above the video */
+}
+
+.hero-content {
+    z-index: 1;
+    padding: 20px; /* Adds some padding around the content */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Text shadow for a more dynamic look */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* Adjust font size as needed */
+  background: linear-gradient(150deg, #ffd99f, #ff8b9e, #f8adff); /* Pastel gradient colors */
+  background-clip: text; /* Clips background to the text */
+  -webkit-background-clip: text; /* Clips background to the text in WebKit browsers */
+  color: transparent; /* Makes the text transparent */
+  transition: background 0.5s; /* Smooth transition */
+  text-shadow: 0 0 5px rgba(255, 154, 158, 0.5), 
+  0 0 8px rgba(255, 154, 158, 0.3), 
+  0 0 10px rgba(255, 154, 158, 0.2);
+}
+
+.hero-content p:hover {
+  color: #f4b4c4; /* Change to gold on hover */
+  text-shadow: 2px 2px 10px rgba(183, 110, 121, 0.8); 
+}
+
+/* Resume Button */
+.resume-btn {
+  display: inline-block;
+  padding: 8px 10px;
+  border: 2px solid white;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background-color: transparent; /* Transparent from inside */
+}
+
+.resume-btn:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+/* About Section */
+#about {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-section {
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.about-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffd99f;
+  text-shadow: 0 0 10px rgba(255, 154, 158, 0.5);
+  text-align: center;
+}
+
+/* Flexbox for Paragraph and Image */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Reduced gap for spacing */
+}
+
+/* Text Content Styling */
+.text-content {
+  flex: 2; /* Increased width of the text container */
+  text-align: left;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Image Content Styling */
+.image-content {
+  flex: 1; /* Decreased width of the image container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.image-content img {
+  max-width: 25%; /* Adjusted width of the image for better fit */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  object-fit: cover;
+}
+
+/* Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Scroll Snap for About and Skills Section */
+#about, #skills {
+  scroll-snap-align: start; /* Freezes each section when scrolling reaches it */
+}
+
+/* Skills Section Styles */
+#skills {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: radial-gradient(circle at center, #000000, #050505 80%, #0a0a0a);
+  background-size: cover;
+}
+
+.skills-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #00FFFF;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.bubbles {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Bubble Base Styling */
+.bubble {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Hover Effect */
+.bubble:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Bubble Icons */
+.bubble-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Bubble Text */
+.bubble-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Unique Bubble Colors */
+.code-maestro {
+  background: linear-gradient(135deg, #0066ff, #00ccff);
+}
+
+.game-architect {
+  background: linear-gradient(135deg, #8000ff, #cc00ff);
+}
+
+.cloud-canvas {
+  background: linear-gradient(135deg, #ff6600, #ffcc00);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Scroll Snap for Skills and Projects Section */
+#skills, #projects {
+  scroll-snap-align: start; /* Freezes each section when scrolling reaches it */
+}
+
+/* Projects Section Styles */
+#projects {
+  position: relative;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: radial-gradient(circle at center, #000000, #050505 80%, #0a0a0a);
+}
+
+/* Projects Page Container */
+.projects-page {
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Projects Heading */
+.projects-page h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #D8BFD8;
+  text-shadow: 0 0 10px rgba(230, 230, 250, 0.5);
+}
+
+/* Projects Container */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Project Blocks */
+.project-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: rgba(36, 65, 67, 0.144);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.project-block:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+/* Project Block Titles */
+.project-block h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  transition: color 0.3s ease-in-out;
+}
+
+.project-block:hover h3 {
+  color: #00FFFF;
+}
+
+/* Buttons inside Project Blocks */
+.project-button {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Machines That Think Animation (Glowing Effect) */
+.machines h3 {
+  animation: glowing-text 1.5s ease-in-out infinite;
+}
+
+@keyframes glowing-text {
+  0%, 100% {
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+  }
+  50% {
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+  }
+}
+
+/* From Code to Playgrounds Animation (Bounce Effect) */
+.code-playgrounds h3 {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .project-block {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .projects-page h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-page h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-block {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+  }
+
+  .project-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+/* Scroll Snap for Contact and Footer Sections */
+#contact, #footer {
+  scroll-snap-align: start; /* Ensures each section snaps into view */
+}
+
+/* Contact Section Styles */
+#contact {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-page {
+  padding: 40px;
+}
+
+.contact-page h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #58a6ff;
+  text-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+}
+
+.contact-page p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.contact-details {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.contact-details li {
+  margin: 10px 0;
+  color: #ffffff;
+} 
+
+/* Footer Section Styles */
+#footer {
+  position: relative;
+  height: 12vh;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-content {
+  padding: 20px;
+}
+
+.footer-content p {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+  /* Mobile Navigation Styles */
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Place the hamburger icon on the right side */
+    z-index: 1001; /* Make sure it's on top of everything else */
+  }
+  
+  .menu-toggle img {
+    width: 30px; /* Adjust size for the hamburger and close icons */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+
+    /* Make the menu toggle visible on mobile */
+    .menu-toggle {
+      display: block;
+    }
+  
+    nav ul {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.9);
+      width: 100%;
+      height: calc(100vh - 60px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+  
+    nav ul li {
+      margin: 20px 0;
+    }
+  
+    /* Show the navigation links when the menu is toggled */
+    .nav-links.show-nav {
+      display: flex;
+    }
+  
+    /* Ensure the close icon appears above the background */
+    .menu-toggle img {
+      z-index: 1002; /* Higher than the nav-links */
+    }
+   
+    /*hero*/
+    .hero-content h1 {
+      font-size: 1.8rem;
+  }
+
+  .hero-content p {
+      font-size: 1rem;
+  }
+
+  .resume-btn {
+      font-size: 1rem;
+      padding: 8px 20px;
+  }
+  }
+  
+  @media (max-width: 480px) {
+    .text-content h2 {
+      font-size: 1.8rem;
+    }
+  
+    .text-content p {
+      font-size: 1rem;
+    }
+  }
+
+  /* Responsive About Section */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center;
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .text-content {
+    flex: 1; /* Adjust width for better fit */
+  }
+
+  .image-content {
+    flex: 1; /* Adjust width for better fit */
+  }
+
+  .image-content img {
+    max-width: 10%; /* Adjust image size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .text-content p {
+    font-size: 0.9rem; /* Reduce text size */
+    line-height: 1.4;
+  }
+
+  .image-content img {
+    max-width: 20%; /* Further adjust image size */
+  }
+
+  .about-content h2 {
+    font-size: 1.8rem; /* Reduce heading size */
+  }
+}
+
+/* Responsive Skills Section */
+@media (max-width: 768px) {
+  .bubbles {
+    gap: 20px; /* Reduce gap between bubbles */
+    justify-content: center;
+  }
+
+  .bubble {
+    width: 180px; /* Adjust size of bubbles */
+    height: 180px;
+  }
+
+  .bubble-icon {
+    font-size: 2rem; /* Adjust icon size */
+  }
+
+  .bubble-text {
+    font-size: 0.6rem; /* Adjust text size */
+  }
+}
+
+@media (max-width: 480px) {
+  .bubbles {
+    gap: 10px; /* Further reduce gap */
+  }
+
+  .bubble {
+    width: 140px; /* Further adjust size */
+    height: 140px;
+  }
+
+  .bubble-text {
+    font-size: 0.5rem; /* Reduce text size */
+  }
+
+  .skills-container h2 {
+    font-size: 2rem; /* Reduce heading size */
+  }
+}
+
+  /* Import Rage Italic Font */
+@font-face {
+  font-family: 'Rage Italic';
+  src: url('fonts/RageItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply Rage Italic to h2 */
+.text-content h2,
+.skills-page h2,
+.projects-page h2,
+.contact-page h2 {
+  font-family: 'Rage Italic', cursive;
+  text-align: center;
+}
