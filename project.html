@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="x-icon" href="osegol.png">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="Ishika.png">
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+      <!-- Hamburger menu (for mobile) -->
+      <div class="menu-toggle">
+        <img src="menubutton.png" alt="Menu" id="menu-btn" class="menu-icon">
+        <img src="closebutton.png" alt="Close" id="close-btn" class="close-icon" style="display: none;">
+      </div>
+    </nav>
+  </header>
+
+  <!-- Project Section -->
+<section id="project">
+  <div class="black-background"></div>
+  <video autoplay muted loop id="project-video">
+    <source src="v4.mp4" type="video/mp4">
+  </video>
+  
+  <div class="project-content">
+    <h2 class="project-title">Projects</h2>
+    
+    <div class="project-grid">
+      <div class="project-card" onclick="window.open('https://your-webgl-link1.com', '_blank')">
+        <img src="project1.png" alt="Project 1">
+      </div>
+      <div class="project-card" onclick="window.open('https://github.com/your-project2', '_blank')">
+        <img src="project2.png" alt="Project 2">
+      </div>
+      <div class="project-card" onclick="window.open('https://your-webgl-link3.com', '_blank')">
+        <img src="project3.png" alt="Project 3">
+      </div>
+      <div class="project-card" onclick="window.open('https://github.com/your-project4', '_blank')">
+        <img src="project4.png" alt="Project 4">
+      </div>
+      <div class="project-card" onclick="window.open('https://your-webgl-link5.com', '_blank')">
+        <img src="project5.png" alt="Project 5">
+      </div>
+      <div class="project-card" onclick="window.open('https://github.com/your-project6', '_blank')">
+        <img src="project6.png" alt="Project 6">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer id="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Ishika Joshi. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+  
+</body>
+</html>

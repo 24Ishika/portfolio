@@ -1,0 +1,689 @@
+@font-face {
+  font-family: 'Rage Italic';
+  src: url('fonts/RageItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    line-height: 1.6;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 8px 0;
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Logo */
+  nav .logo img {
+    height: 50px;
+  }
+  
+  /* Navigation Links (Desktop) */
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+  }
+  
+  nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+  }
+  
+/* Hero Section */
+#hero {
+    position: sticky;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden; /* Prevents overflow of content */
+    top: 0;
+}
+
+#hero video {
+    position: absolute;
+    top: 50%; /* Center the video vertically */
+    left: 50%; /* Center the video horizontally */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50.1%, -50.1%); /* Adjusts the video to be centered */
+    z-index: -1;
+}
+
+.black-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Black background with 50% opacity */
+    z-index: 0; /* Ensure this is behind the content but above the video */
+}
+
+.hero-content {
+    z-index: 1;
+    padding: 20px; /* Adds some padding around the content */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Text shadow for a more dynamic look */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* Adjust font size as needed */
+  background: linear-gradient(150deg, #ffd99f, #ff8b9e, #f8adff); /* Pastel gradient colors */
+  background-clip: text; /* Clips background to the text */
+  -webkit-background-clip: text; /* Clips background to the text in WebKit browsers */
+  color: transparent; /* Makes the text transparent */
+  transition: background 0.5s; /* Smooth transition */
+  text-shadow: 0 0 5px rgba(255, 154, 158, 0.5), 
+  0 0 8px rgba(255, 154, 158, 0.3), 
+  0 0 10px rgba(255, 154, 158, 0.2);
+}
+
+.hero-content p:hover {
+  color: #f4b4c4; /* Change to gold on hover */
+  text-shadow: 2px 2px 10px rgba(183, 110, 121, 0.8); 
+}
+
+/* Resume Button */
+.resume-btn {
+  display: inline-block;
+  padding: 8px 10px;
+  border: 2px solid white;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background-color: transparent; /* Transparent from inside */
+}
+
+.resume-btn:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+
+
+/* Footer Section Styles */
+#footer {
+  position: relative;
+  height: 11vh;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer-content {
+  padding: 20px;
+}
+
+.footer-content p {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+  /* Mobile Navigation Styles */
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Place the hamburger icon on the right side */
+    z-index: 1001; /* Make sure it's on top of everything else */
+  }
+  
+  .menu-toggle img {
+    width: 30px; /* Adjust size for the hamburger and close icons */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+
+    /* Make the menu toggle visible on mobile */
+    .menu-toggle {
+      display: block;
+    }
+  
+    nav ul {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.9);
+      width: 100%;
+      height: calc(100vh - 60px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+  
+    nav ul li {
+      margin: 20px 0;
+    }
+  
+    /* Show the navigation links when the menu is toggled */
+    .nav-links.show-nav {
+      display: flex;
+    }
+  
+    /* Ensure the close icon appears above the background */
+    .menu-toggle img {
+      z-index: 1002; /* Higher than the nav-links */
+    }
+   
+    /*hero*/
+    .hero-content h1 {
+      font-size: 1.8rem;
+  }
+
+  .hero-content p {
+      font-size: 1rem;
+  }
+
+  .resume-btn {
+      font-size: 1rem;
+      padding: 8px 20px;
+  }
+    #footer {
+      flex-direction: column; /* Stack content on smaller screens */
+      padding: 15px;
+    }
+  
+    .footer-content p {
+      font-size: 0.9rem; /* Slightly reduce text size */
+    }
+
+    .contact-page h2 {
+      font-size: 2rem; /* Slightly smaller heading */
+      top: -50%; /* Adjusted position */
+      left: 25%;
+      transform: translateX(-2%); 
+  }
+  
+  .contact-page {
+      max-width: 90%;
+      padding: 20px;
+  }
+  #about {
+    padding: 60px 15px;
+    align-items: flex-start; /* Allows content to adjust naturally */
+  }
+
+  .about {
+    max-width: 90%;
+    padding: 20px;
+    line-height: 1.5;
+  }
+
+  .about h2 {
+    font-size: 32px;
+  }
+
+  .about p {
+    font-size: 20px;
+    padding: 10px;
+  }
+  }
+  
+  @media (max-width: 480px) {
+    .text-content h2 {
+      font-size: 1.8rem;
+    }
+  
+    .text-content p {
+      font-size: 1rem;
+    }
+    .footer-content p {
+      font-size: 0.8rem; 
+    }
+
+    .contact-page h2 {
+      font-size: 1.8rem; /* Smaller heading */
+      top: -45%;
+      left: 10%;
+      transform: translateX(-10%);
+  }
+  
+  .contact-page {
+      max-width: 95%;
+      padding: 20px;
+  }
+  
+  .contact-page p,
+  .contact-details li {
+      font-size: 0.7rem;
+  }
+  .about {
+    max-width: 100%; /* Ensure full width */
+    padding: 5px; /* Reduce padding */
+  }
+
+  .about h2 {
+    font-size: 30px; /* Decrease font size */
+    margin-bottom: 2px; /* Reduce spacing */
+  }
+
+  .about p {
+    font-size: 15px; /* Slightly smaller text */
+    line-height: 1.5; /* Reduce line spacing */
+  }
+}
+
+/* Import Rage Italic Font */
+@font-face {
+  font-family: 'Rage Italic';
+  src: url('fonts/RageItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Contact Section */
+#contact {
+    position: sticky;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden; /* Prevents overflow of content */
+    top: 0;
+}
+
+/* Background Video */
+#contact-video {
+    position: absolute;
+    top: 50%; /* Center the video vertically */
+    left: 50%; /* Center the video horizontally */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50.1%, -50.1%); /* Adjusts the video to be centered */
+    z-index: -1;
+}
+
+/* Dark Overlay */
+.black-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45); /* Black background with 50% opacity */
+  z-index: 0; /* Ensure this is behind the content but above the video */
+}
+
+/* Contact Heading (Centered at the Top) */
+.contact-page h2 {
+    font-family: 'Rage Italic', cursive;
+    font-size: 3rem;
+    position: absolute;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+    top: -60%; /* Moves heading up */
+    left: 22%;
+}
+
+/* Contact Content Box */
+.contact-page {
+  position: relative;
+  background: rgba(255, 255, 255, 0.012);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 80%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  margin-top: 60px; /* Adds space between heading and box */
+}
+
+/* Contact Text Styling */
+.contact-page p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-details li {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.contact-details a {
+    color: #ffd99f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-details a:hover {
+    color: #6a8afc;
+}
+
+/* General Styling */
+#about {
+  position: sticky;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden; /* Prevents overflow of content */
+  top: 0;
+}
+
+/* Background Video */
+#about-video {
+  position: absolute;
+    top: 50%; /* Center the video vertically */
+    left: 50%; /* Center the video horizontally */
+    width: 105%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50.1%, -50.1%); /* Adjusts the video to be centered */
+    z-index: -1;
+}
+
+
+/* About Content */
+.about {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  z-index: 2;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Heading Styling */
+.about h2 {
+  font-family: 'Rage Italic', cursive;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 4vw; /* Scales with screen width */
+}
+
+/* Paragraph Styling */
+.about p {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+  font-size: 1.2rem; /* Scales with root font size */
+  animation: slideIn 1.2s ease-in-out;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+#skill {
+  position: sticky;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden; /* Prevents overflow of content */
+  top: 0;
+}
+
+#skill-video {
+  position: absolute;
+  top: 50%; /* Center the video vertically */
+  left: 50%; /* Center the video horizontally */
+  width: 105%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50.1%, -50.1%); /* Adjusts the video to be centered */
+  z-index: -1;
+}
+
+
+.skill-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.skill-wrapper {
+  display: flex;
+  gap: 20px;
+  animation: scroll 60s linear infinite;
+}
+
+.skill-card {
+  width: 120px;
+  height: 120px;
+  perspective: 1000px;
+}
+
+.skill-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.skill-card:hover .skill-card-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-card-front, .skill-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.skill-card-front img {
+  width: 70px;
+  height: 70px;
+}
+
+.skill-card-back {
+  transform: rotateY(180deg);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+}
+.skill-heading {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 45px;
+  font-family: "Rage Italic", cursive;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-80%); /* Move half to ensure seamless looping */
+  }
+
+}
+
+#project {
+  position: sticky;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden; /* Prevents overflow of content */
+  top: 0;
+}
+
+#project-video {
+  position: absolute;
+  top: 50%; /* Center the video vertically */
+  left: 50%; /* Center the video horizontally */
+  width: 105%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50.1%, -50.1%); /* Adjusts the video to be centered */
+  z-index: -1;
+  filter: brightness(50%);
+}
+.project-content {
+  position: relative;
+  width: 80%;
+  text-align: center;
+  margin-top: 120px; /* Shifted down */
+}
+
+.project-title {
+  font-family: "Rage Italic", cursive;
+  font-size: 2.8rem; /* Adjusted to match other page headings */
+  color: white;
+  margin-bottom: 20px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 200px; /* Reduced card size */
+  height: 200px; /* Reduced card size */
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-card:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card {
+    max-width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .project-card {
+    max-width: 150px;
+    height: 150px;
+  }
+}
